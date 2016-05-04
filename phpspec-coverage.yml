@@ -1,0 +1,17 @@
+suites:
+    main:
+        namespace: Karriere\CodeQuality
+        psr4_prefix: Karriere\CodeQuality
+        src_path: src
+        spec_prefix: tests\specs
+
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
+
+code_coverage:
+  format:
+    - html
+    - clover
+  output:
+    html: coverage
+    clover: coverage.xml

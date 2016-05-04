@@ -1,0 +1,15 @@
+{
+    "name": "karriere/code-quality",
+    "description": "Wrapper around composer scripts.",
+    "autoload": {
+        "psr-4": {
+            "Karriere\\CodeQuality\\": "src"
+        }
+    },
+    "require": {
+        "symfony/process": "^3.0.5"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "^2.5"
+    }
+}
