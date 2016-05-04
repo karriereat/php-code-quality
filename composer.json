@@ -7,6 +7,9 @@
         }
     },
     "require": {
+        "phpspec/phpspec": "^2.5",
+        "henrikbjorn/phpspec-code-coverage": "^2.0",
+        "squizlabs/php_codesniffer": "^2.6",
         "symfony/process": "^3.0.5"
     },
     "require-dev": {
