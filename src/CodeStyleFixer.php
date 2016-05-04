@@ -3,7 +3,7 @@
 namespace Karriere\CodeQuality;
 
 use Composer\Script\Event;
-use Symfony\Component\Process;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleFixer implements ComposerScriptInterface
