@@ -10,10 +10,8 @@
         "phpspec/phpspec": "^2.5",
         "henrikbjorn/phpspec-code-coverage": "^2.0",
         "squizlabs/php_codesniffer": "^2.6",
-        "symfony/process": "^3.0.5"
-    },
-    "require-dev": {
-        "phpspec/phpspec": "^2.5"
+        "symfony/process": "^3.0",
+        "symfony/console": "^3.0"
     },
     "scripts": {
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
