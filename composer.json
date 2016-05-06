@@ -14,5 +14,11 @@
     },
     "require-dev": {
         "phpspec/phpspec": "^2.5"
+    },
+    "scripts": {
+        "test": "Karriere\\CodeQuality\\SpecificationTest::run",
+        "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
+        "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run",
+        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run"
     }
 }

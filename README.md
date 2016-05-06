@@ -30,3 +30,18 @@ Make following changes to your `composer.json` and afterwards do `composer updat
     }
 }
 ```
+
+### Adding Code Quality Scripts
+
+Insert the desired scripts to your `composer.json`.
+
+```
+{
+    "scripts": {
+        "test": "Karriere\\CodeQuality\\SpecificationTest::run",
+        "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
+        "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run",
+        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run"
+    }
+}
+```
