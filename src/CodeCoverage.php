@@ -17,14 +17,9 @@ class CodeCoverage implements ComposerScriptInterface
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . self::$command . '</>');
 
         $process = new Process(self::$command);
+        $process->setTty(true);
         $process->run();
 
-        $exitCode = $process->getExitCode();
-        if ($exitCode !== ComposerScriptInterface::EXIT_CODE_OK) {
-            //throw new ProcessFailedException($process);
-        }
-
-        $consoleOutput->write($process->getOutput());
-        $consoleOutput->writeln('<fg=black;bg=yellow>Finished!</>');
+        exit($process->getExitCode());
     }
 }

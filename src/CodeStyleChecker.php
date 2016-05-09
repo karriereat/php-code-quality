@@ -9,7 +9,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleChecker implements ComposerScriptInterface
 {
-    public static $command = 'phpcs src -s -p --standard=PSR2';
+    public static $command = 'phpcs src -s --colors --report=diff --standard=PSR2';
 
     public static function run(Event $event)
     {
@@ -17,14 +17,17 @@ class CodeStyleChecker implements ComposerScriptInterface
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . self::$command . '</>');
 
         $process = new Process(self::$command);
+        $process->setTty(true);
         $process->run();
 
+        $consoleOutput->write($process->getOutput());
+
         $exitCode = $process->getExitCode();
-        if ($exitCode !== ComposerScriptInterface::EXIT_CODE_OK) {
-            //throw new ProcessFailedException($process);
+
+        if ($exitCode === ComposerScriptInterface::EXIT_CODE_OK) {
+            $consoleOutput->writeln('<fg=black;bg=green>Finished without errors!</>');
         }
 
-        $consoleOutput->write($process->getOutput());
-        $consoleOutput->writeln('<fg=black;bg=yellow>Finished!</>');
+        exit($exitCode);
     }
 }
