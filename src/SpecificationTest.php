@@ -8,7 +8,7 @@ use Symfony\Component\Process\Process;
 
 class SpecificationTest implements ComposerScriptInterface
 {
-    public static $command = 'phpspec run';
+    private static $command = 'phpspec run';
 
     public static function run(Event $event)
     {

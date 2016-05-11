@@ -9,7 +9,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeCoverage implements ComposerScriptInterface
 {
-    public static $command = 'phpspec run -c phpspec-coverage.yml';
+    private static $command = 'phpspec run -c phpspec-coverage.yml';
 
     public static function run(Event $event)
     {

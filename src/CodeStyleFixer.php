@@ -9,7 +9,13 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleFixer implements ComposerScriptInterface
 {
-    public static $command = 'phpcbf src --colors';
+    /**
+     * The code style fixer command.
+     * An alternative is php_codesniffer: 'phpcbf src --colors'
+     *
+     * @var string
+     */
+    private static $command = 'php-cs-fixer fix src --level=psr2 --diff';
 
     public static function run(Event $event)
     {
@@ -35,7 +41,7 @@ class CodeStyleFixer implements ComposerScriptInterface
      * Map phpcbf exit codes to cli (composer) exit codes.
      * Works for version "squizlabs/php_codesniffer": "^2.6".
      *
-     * @param  int $exitCode
+     * @param int $exitCode
      * @return int
      */
     private static function phpcbfExitCodeToComposerExitCode($exitCode)
