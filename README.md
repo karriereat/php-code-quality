@@ -12,7 +12,7 @@ Must be configured with a `phpspec.yml` file in your root folder.
 ### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 Currently used for fixing the code.   
-Fixes all files in `src` directory.
+Fixes all files in `src` directory. Does not implement all PSR2 rules (yet).
 
 This package is not used for checking (linting), because it can't create
 XML reports.
