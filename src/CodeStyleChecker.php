@@ -18,9 +18,9 @@ class CodeStyleChecker implements ComposerScriptInterface
      *
      * @var string
      */
-    private static $command = [
+    private static $commands = [
         'local' => 'phpcs src --standard=PSR2 --colors',
-        'jenkins' => 'phpcs src --standard=PSR2 --colors --report=diff'
+        'jenkins' => 'phpcs src --standard=PSR2 --report=checkstyle --report-file=checkstyle.xml'
     ];
 
     public static function run(Event $event)
@@ -29,7 +29,7 @@ class CodeStyleChecker implements ComposerScriptInterface
 
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
-        $command = self::getCommandByEventArguments($eventArguments);
+        $command = self::getArrayValueByEventArguments('env', self::$commands, $eventArguments);
 
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
@@ -46,31 +46,5 @@ class CodeStyleChecker implements ComposerScriptInterface
         }
 
         exit($exitCode);
-    }
-
-    /**
-     * Use the fitting command, according to the script argument '--env'.
-     *
-     * @param array  $eventArguments
-     * @return string  $command
-     */
-    private static function getCommandByEventArguments($eventArguments)
-    {
-        $consoleOutput = new ConsoleOutput();
-
-        if (array_key_exists('env', $eventArguments) && array_key_exists($eventArguments['env'], self::$command)) {
-            $command = self::$command[$eventArguments['env']];
-        } elseif (array_key_exists('env', $eventArguments)) {
-            $command = self::$command['local'];
-            $consoleOutput->writeln(
-                '<comment>Environment <options=bold>' .
-                $eventArguments['env'] .
-                '</> is not defined. Using default command.</comment>'
-            );
-        } else {
-            $command = self::$command['local'];
-        }
-
-        return $command;
     }
 }

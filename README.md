@@ -14,14 +14,16 @@ Must be configured with a `phpspec.yml` file in your root folder.
 Currently used for fixing the code.   
 Fixes all files in `src` directory.
 
-This package is not used for checking (linting), because it can't create XML reports.
+This package is not used for checking (linting), because it can't create
+XML reports.
 
 ### [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 Currently used for checking (linting) the code.   
 Sniffs all files in `src` directory.
 
-This package is not used for fixing, because it turned out be buggy (v2.6.0).
+This package is can also be used for fixing, but it fixes way more than
+specified in PSR2 and is buggy.   
 Version v3.0.0 (not released yet) should improve reliability.
 
 ## Installation
@@ -37,7 +39,8 @@ composer require karriere/code-quality
 
 **Manual way:**
 
-Make following changes to your `composer.json` and afterwards do `composer update`.
+Make following changes to your `composer.json` and afterwards do 
+`composer update`.
 
 ```
 {
@@ -82,4 +85,8 @@ These scripts accept arguments:
 ```
 composer lint -- --env=local (default)
 composer lint -- --env=jenkins
+```
+```
+composer fix -- --tool=php-cs-fixer (default)
+composer fix -- --tool=phpcbf
 ```

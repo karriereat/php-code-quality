@@ -38,4 +38,38 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
         self::getComposerScriptArguments(array('--foo=bar', '--bar=foo'))
             ->shouldReturn(array('foo' => 'bar', 'bar' => 'foo'));
     }
+
+    function it_returns_a_default_command()
+    {
+        self::getArrayValueByEventArguments(
+            'env',
+            [
+                'foo' => 'command foo',
+                'bar' => 'command bar'
+            ],
+            ['env' => 'novalidenv'],
+            false
+        )->shouldReturn('command foo');
+    }
+
+    function it_returns_a_command()
+    {
+        self::getArrayValueByEventArguments(
+            'env',
+            [
+                'foo' => 'command foo',
+                'bar' => 'command bar'
+            ],
+            ['env' => 'foo']
+        )->shouldReturn('command foo');
+
+        self::getArrayValueByEventArguments(
+            'env',
+            [
+                'foo' => 'command foo',
+                'bar' => 'command bar'
+            ],
+            ['env' => 'bar']
+        )->shouldReturn('command bar');
+    }
 }
