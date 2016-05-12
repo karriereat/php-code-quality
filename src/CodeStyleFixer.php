@@ -4,8 +4,8 @@ namespace Karriere\CodeQuality;
 
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
+use Karriere\CodeQuality\Process\Process;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleFixer implements ComposerScriptInterface
@@ -20,7 +20,7 @@ class CodeStyleFixer implements ComposerScriptInterface
      */
     private static $commands = [
         'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff',
-        'phpcbf' => 'phpcbf src --standard=PSR2 --colors'
+        'phpcbf'       => 'phpcbf src --standard=PSR2 --colors'
     ];
 
     public static function run(Event $event)
@@ -34,7 +34,7 @@ class CodeStyleFixer implements ComposerScriptInterface
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
-        $process->setTty(true);
+        $process->setTtyByArguments($eventArguments);
         $process->run();
 
         $consoleOutput->write($process->getOutput());

@@ -4,8 +4,8 @@ namespace Karriere\CodeQuality;
 
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
+use Karriere\CodeQuality\Process\Process;
 use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleChecker implements ComposerScriptInterface
@@ -19,7 +19,7 @@ class CodeStyleChecker implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'local' => 'phpcs src --standard=PSR2 --colors',
+        'local'   => 'phpcs src --standard=PSR2 --colors',
         'jenkins' => 'phpcs src --standard=PSR2 --report=checkstyle --report-file=checkstyle.xml'
     ];
 
@@ -34,7 +34,7 @@ class CodeStyleChecker implements ComposerScriptInterface
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
-        //$process->setTty(true);
+        $process->setTtyByArguments($eventArguments);
         $process->run();
 
         $consoleOutput->write($process->getOutput());

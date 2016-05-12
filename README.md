@@ -87,6 +87,16 @@ composer lint -- --env=local (default)
 composer lint -- --env=jenkins
 ```
 ```
+composer coverage -- --env=local (default)
+composer coverage -- --env=jenkins
+```
+```
 composer fix -- --tool=php-cs-fixer (default)
 composer fix -- --tool=phpcbf
+```
+
+You can disable `tty` by adding the `--notty` flag (needed for Jenkins).
+
+```
+composer {script} -- --env=jenkins --notty
 ```

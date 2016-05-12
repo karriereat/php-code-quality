@@ -56,4 +56,20 @@ trait ScriptArgumentsTrait
 
         return $arrayValue;
     }
+
+    /**
+     * Check if an argument was supplied with script.
+     *
+     * @param $argument
+     * @param $eventArguments
+     * @return bool
+     */
+    public static function argumentExists($argument, $eventArguments)
+    {
+        if (array_key_exists($argument, $eventArguments)) {
+            return true;
+        }
+
+        return false;
+    }
 }

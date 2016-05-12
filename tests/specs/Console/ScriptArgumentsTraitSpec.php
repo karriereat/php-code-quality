@@ -72,4 +72,22 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
             ['env' => 'bar']
         )->shouldReturn('command bar');
     }
+
+    function it_returns_if_argument_exists()
+    {
+        self::argumentExists('foo', array('foo' => null))
+            ->shouldReturn(true);
+
+        self::argumentExists('foo', array('bar' => null))
+            ->shouldReturn(false);
+
+        self::argumentExists('foo', array('foo' => 'bar'))
+            ->shouldReturn(true);
+
+        self::argumentExists('foo', array('bar' => 'foo'))
+            ->shouldReturn(false);
+
+        self::argumentExists('foo', array('foo' => 'bar', 'bar' => 'foo'))
+            ->shouldReturn(true);
+    }
 }
