@@ -32,7 +32,7 @@ The recommended way to install this package is over composer.
 
 **Automatic way:**
 
-```
+```shell
 composer config repositories.code-quality vcs git@gitlab:php/code_quality.git
 composer require karriere/code-quality
 ```
@@ -42,7 +42,7 @@ composer require karriere/code-quality
 Make following changes to your `composer.json` and afterwards do 
 `composer update`.
 
-```
+```json
 {
     "repositories": {
         "code-quality": {
@@ -60,7 +60,7 @@ Make following changes to your `composer.json` and afterwards do
 
 Insert the desired scripts to your `composer.json`.
 
-```
+```json
 {
     "scripts": {
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
@@ -73,7 +73,7 @@ Insert the desired scripts to your `composer.json`.
 
 You can execute the scripts like this:
 
-```
+```shell
 composer test
 composer lint
 composer fix
@@ -82,15 +82,15 @@ composer coverage
 
 These scripts accept arguments:
 
-```
+```shell
 composer lint -- --env=local (default)
 composer lint -- --env=jenkins
 ```
-```
+```shell
 composer coverage -- --env=local (default)
 composer coverage -- --env=jenkins
 ```
-```
+```shell
 composer fix -- --tool=php-cs-fixer (default)
 composer fix -- --tool=phpcbf
 ```
