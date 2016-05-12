@@ -34,7 +34,7 @@ class CodeStyleChecker implements ComposerScriptInterface
         $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
-        $process->setTty(true);
+        //$process->setTty(true);
         $process->run();
 
         $consoleOutput->write($process->getOutput());
