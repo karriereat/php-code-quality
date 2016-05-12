@@ -20,7 +20,7 @@ class CodeStyleFixer implements ComposerScriptInterface
      */
     private static $commands = [
         'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff',
-        'phpcbf' => 'phpcbf src --colors'
+        'phpcbf' => 'phpcbf src --standard=PSR2 --colors'
     ];
 
     public static function run(Event $event)
