@@ -14,7 +14,6 @@ class CodeStyleFixer implements ComposerScriptInterface
 
     /**
      * The code style fixer command.
-     * An alternative is php_codesniffer: 'phpcbf src --colors'
      *
      * @var string
      */

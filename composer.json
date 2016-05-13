@@ -1,6 +1,6 @@
 {
     "name": "karriere/code-quality",
-    "description": "Wrapper around composer scripts.",
+    "description": "Code Quality tests that can be run via Composer scripts.",
     "autoload": {
         "psr-4": {
             "Karriere\\CodeQuality\\": "src"
