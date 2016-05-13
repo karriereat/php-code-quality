@@ -26,6 +26,6 @@ class SpecificationTest implements ComposerScriptInterface
 
         $consoleOutput->write($process->getOutput());
 
-        exit($process->getExitCode());
+        return $process->getExitCode();
     }
 }

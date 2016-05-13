@@ -12,7 +12,7 @@ trait ScriptArgumentsTrait
      * @param  array $arguments String from new Composer\Script\Event()->getArguments()
      * @return array
      */
-    public static function getComposerScriptArguments($arguments)
+    public static function getComposerScriptArguments(array $arguments)
     {
         $keyValueArguments = array();
 
@@ -34,7 +34,7 @@ trait ScriptArgumentsTrait
      * @param  bool   $verbose        Whether to print verbose information to console.
      * @return string Array value
      */
-    public static function getArrayValueByEventArguments($key, $array, $eventArguments, $verbose = true)
+    public static function getArrayValueByEventArguments($key, array $array, array $eventArguments, $verbose = true)
     {
         if (array_key_exists($key, $eventArguments) && array_key_exists($eventArguments[$key], $array)) {
             $arrayValue = $array[$eventArguments[$key]];
@@ -60,11 +60,11 @@ trait ScriptArgumentsTrait
     /**
      * Check if an argument was supplied with script.
      *
-     * @param $argument
-     * @param $eventArguments
+     * @param string $argument
+     * @param array  $eventArguments
      * @return bool
      */
-    public static function argumentExists($argument, $eventArguments)
+    public static function argumentExists($argument, array $eventArguments)
     {
         if (array_key_exists($argument, $eventArguments)) {
             return true;

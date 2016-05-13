@@ -44,7 +44,7 @@ class CodeStyleFixer implements ComposerScriptInterface
             throw new ProcessFailedException($process);
         }
 
-        exit($exitCode);
+        return $exitCode;
     }
 
     /**

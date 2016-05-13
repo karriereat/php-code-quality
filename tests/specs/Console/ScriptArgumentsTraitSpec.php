@@ -50,6 +50,15 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
             ['env' => 'novalidenv'],
             false
         )->shouldReturn('command foo');
+
+        self::getArrayValueByEventArguments(
+            'env',
+            [
+                'foo' => 'bar'
+            ],
+            ['bar' => 'foo'],
+            false
+        )->shouldReturn('bar');
     }
 
     function it_returns_a_command()

@@ -11,4 +11,9 @@ class CodeCoverageSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Karriere\CodeQuality\CodeCoverage');
     }
+
+    function it_implements_the_correct_interface()
+    {
+        $this->shouldImplement('Karriere\CodeQuality\ComposerScriptInterface');
+    }
 }

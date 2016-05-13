@@ -45,6 +45,6 @@ class CodeStyleChecker implements ComposerScriptInterface
             $consoleOutput->writeln('<fg=black;bg=green>Finished without errors!</>');
         }
 
-        exit($exitCode);
+        return $exitCode;
     }
 }

@@ -31,6 +31,6 @@ class CodeCoverage implements ComposerScriptInterface
         $process->setTtyByArguments($eventArguments);
         $process->run();
 
-        exit($process->getExitCode());
+        return $process->getExitCode();
     }
 }
