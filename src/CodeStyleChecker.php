@@ -5,8 +5,6 @@ namespace Karriere\CodeQuality;
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use Karriere\CodeQuality\Process\Process;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleChecker implements ComposerScriptInterface
 {
@@ -19,30 +17,30 @@ class CodeStyleChecker implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'local'   => 'phpcs src --standard=PSR2 --colors',
+        'local'   => 'phpcs src --standard=PSR2 {--colors}',
         'jenkins' => 'phpcs src --standard=PSR2 --report=checkstyle --report-file=checkstyle.xml'
     ];
 
     public static function run(Event $event)
     {
-        $consoleOutput = new ConsoleOutput();
-
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
         $command = self::getArrayValueByEventArguments('env', self::$commands, $eventArguments);
+        $command = self::setColorParamIfSupported($command);
 
-        $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
+        $composerIO = $event->getIO();
+        $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
         $process->setTtyByArguments($eventArguments);
         $process->run();
 
-        $consoleOutput->write($process->getOutput());
+        $composerIO->write($process->getOutput());
 
         $exitCode = $process->getExitCode();
 
         if ($exitCode === ComposerScriptInterface::EXIT_CODE_OK) {
-            $consoleOutput->writeln('<fg=black;bg=green>Finished without errors!</>');
+            $composerIO->write('<fg=black;bg=green>Finished without errors!</>');
         }
 
         return $exitCode;

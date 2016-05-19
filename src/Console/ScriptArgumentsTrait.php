@@ -6,6 +6,8 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 trait ScriptArgumentsTrait
 {
+    use ConsoleTrait;
+
     /**
      * Convert composer script arguments (-- --foo --bar=foo) to a key-value array.
      *
@@ -58,15 +60,53 @@ trait ScriptArgumentsTrait
     }
 
     /**
-     * Check if an argument was supplied with script.
+     * Adds the '--colors' param if it is supported by the current OS and a placeholder is found in the command.
      *
-     * @param string $argument
+     * @param $command
+     * @param string $param
+     * @param string $placeholder
+     * @return mixed
+     */
+    public static function setColorParamIfSupported($command, $param = '--colors', $placeholder = '{--colors}')
+    {
+        if (self::supportsColors()) {
+            $command = str_replace($placeholder, $param, $command);
+        } else {
+            $command = str_replace($placeholder, '', $command);
+        }
+
+        return trim($command);
+    }
+
+    /**
+     * Adds the '--no-ansi' param if ANSI is not supported by the current OS and a placeholder is found in the command.
+     *
+     * @param $command
+     * @param string $param
+     * @param string $placeholder
+     * @return mixed
+     */
+    public static function setNoAnsiParamIfNeeded($command, $param = '--no-ansi', $placeholder = '{--no-ansi}')
+    {
+        if (self::supportsColors()) {
+            $command = str_replace($placeholder, '', $command);
+        } else {
+            $command = str_replace($placeholder, $param, $command);
+        }
+
+        return trim($command);
+    }
+
+    /**
+     * Check if an paramater was supplied with command.
+     *
+     * @param string $parameter
      * @param array  $eventArguments
      * @return bool
      */
-    public static function argumentExists($argument, array $eventArguments)
+    public static function hasParameterOption($parameter, array $eventArguments)
     {
-        if (array_key_exists($argument, $eventArguments)) {
+        if (array_key_exists($parameter, $eventArguments)) {
             return true;
         }
 

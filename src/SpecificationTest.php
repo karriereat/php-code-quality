@@ -5,7 +5,6 @@ namespace Karriere\CodeQuality;
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use Karriere\CodeQuality\Process\Process;
-use Symfony\Component\Console\Output\ConsoleOutput;
 
 class SpecificationTest implements ComposerScriptInterface
 {
@@ -15,8 +14,8 @@ class SpecificationTest implements ComposerScriptInterface
 
     public static function run(Event $event)
     {
-        $consoleOutput = new ConsoleOutput();
-        $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . self::$command . '</>');
+        $composerIO = $event->getIO();
+        $composerIO->write('<info>Running </info><fg=green;options=bold>' . self::$command . '</>');
 
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
@@ -24,7 +23,7 @@ class SpecificationTest implements ComposerScriptInterface
         $process->setTtyByArguments($eventArguments);
         $process->run();
 
-        $consoleOutput->write($process->getOutput());
+        $composerIO->write($process->getOutput());
 
         return $process->getExitCode();
     }

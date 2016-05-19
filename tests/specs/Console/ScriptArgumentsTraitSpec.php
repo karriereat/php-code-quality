@@ -82,21 +82,61 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
         )->shouldReturn('command bar');
     }
 
+    function it_returns_a_command_with_or_without_color_param()
+    {
+        self::setColorParamIfSupported('foo bar')
+            ->shouldReturn('foo bar');
+
+        // Since we have no color support on Windows platform, we have to adapt our spec according to the current OS.
+        if ('\\' === DIRECTORY_SEPARATOR) {
+            // Windows
+            self::setColorParamIfSupported('foo bar {--colors}')
+                ->shouldReturn('foo bar');
+        } else {
+            // Unix
+            self::setColorParamIfSupported('foo bar {--colors}')
+                ->shouldReturn('foo bar --colors');
+
+            self::setColorParamIfSupported('foo bar {--colors}')
+                ->shouldReturn('foo bar --colors');
+
+            self::setColorParamIfSupported('foo bar {--color}', '--color', '{--color}')
+                ->shouldReturn('foo bar --color');
+        }
+    }
+
+    function it_returns_a_command_with_or_without_noansi_param()
+    {
+        self::setNoAnsiParamIfNeeded('foo bar')
+            ->shouldReturn('foo bar');
+
+        // Since we have no color support on Windows platform, we have to adapt our spec according to the current OS.
+        if ('\\' === DIRECTORY_SEPARATOR) {
+            // Windows
+            self::setNoAnsiParamIfNeeded('foo bar {--no-ansi}')
+                ->shouldReturn('foo bar --no-ansi');
+        } else {
+            // Unix
+            self::setNoAnsiParamIfNeeded('foo bar {--no-ansi}')
+                ->shouldReturn('foo bar');
+        }
+    }
+
     function it_returns_if_argument_exists()
     {
-        self::argumentExists('foo', array('foo' => null))
+        self::hasParameterOption('foo', array('foo' => null))
             ->shouldReturn(true);
 
-        self::argumentExists('foo', array('bar' => null))
+        self::hasParameterOption('foo', array('bar' => null))
             ->shouldReturn(false);
 
-        self::argumentExists('foo', array('foo' => 'bar'))
+        self::hasParameterOption('foo', array('foo' => 'bar'))
             ->shouldReturn(true);
 
-        self::argumentExists('foo', array('bar' => 'foo'))
+        self::hasParameterOption('foo', array('bar' => 'foo'))
             ->shouldReturn(false);
 
-        self::argumentExists('foo', array('foo' => 'bar', 'bar' => 'foo'))
+        self::hasParameterOption('foo', array('foo' => 'bar', 'bar' => 'foo'))
             ->shouldReturn(true);
     }
 }

@@ -5,8 +5,6 @@ namespace Karriere\CodeQuality;
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use Karriere\CodeQuality\Process\Process;
-use Symfony\Component\Console\Output\ConsoleOutput;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeCoverage implements ComposerScriptInterface
 {
@@ -19,13 +17,12 @@ class CodeCoverage implements ComposerScriptInterface
 
     public static function run(Event $event)
     {
-        $consoleOutput = new ConsoleOutput();
-
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
         $command = self::getArrayValueByEventArguments('env', self::$commands, $eventArguments);
 
-        $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
+        $composerIO = $event->getIO();
+        $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
         $process->setTtyByArguments($eventArguments);

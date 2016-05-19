@@ -80,6 +80,11 @@ composer fix
 composer coverage
 ```
 
+On Windows platform, you have to prepend the `--no-ansi` flag.
+```
+composer {script} --no-ansi
+```
+
 These scripts accept arguments:
 
 ```shell
@@ -95,7 +100,8 @@ composer fix -- --tool=php-cs-fixer (default)
 composer fix -- --tool=phpcbf
 ```
 
-You can disable `tty` by adding the `--notty` flag (needed for Jenkins).
+You can disable `TTY` by adding the `--notty` flag (needed for Jenkins).   
+On Windows platform it's disabled automatically.
 
 ```
 composer {script} -- --env=jenkins --notty

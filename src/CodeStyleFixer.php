@@ -5,7 +5,6 @@ namespace Karriere\CodeQuality;
 use Composer\Script\Event;
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use Karriere\CodeQuality\Process\Process;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class CodeStyleFixer implements ComposerScriptInterface
@@ -18,25 +17,26 @@ class CodeStyleFixer implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff',
-        'phpcbf'       => 'phpcbf src --standard=PSR2 --colors'
+        'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff {--no-ansi}',
+        'phpcbf'       => 'phpcbf src --standard=PSR2 {--colors}'
     ];
 
     public static function run(Event $event)
     {
-        $consoleOutput = new ConsoleOutput();
-
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
         $command = self::getArrayValueByEventArguments('tool', self::$commands, $eventArguments);
+        $command = self::setColorParamIfSupported($command);
+        $command = self::setNoAnsiParamIfNeeded($command);
 
-        $consoleOutput->writeln('<info>Running </info><fg=green;options=bold>' . $command . '</>');
+        $composerIO = $event->getIO();
+        $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');
 
         $process = new Process($command);
         $process->setTtyByArguments($eventArguments);
         $process->run();
 
-        $consoleOutput->write($process->getOutput());
+        $composerIO->write($process->getOutput());
 
         $exitCode = self::phpcbfExitCodeToComposerExitCode($process->getExitCode());
 
