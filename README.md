@@ -80,11 +80,6 @@ composer fix
 composer coverage
 ```
 
-On Windows platform, you have to prepend the `--no-ansi` flag.
-```
-composer {script} --no-ansi
-```
-
 These scripts accept arguments:
 
 ```shell

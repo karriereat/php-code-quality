@@ -17,8 +17,8 @@ class CodeStyleFixer implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff {--no-ansi}',
-        'phpcbf'       => 'phpcbf src --standard=PSR2 {--colors}'
+        'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff',
+        'phpcbf'       => 'phpcbf src --standard=PSR2 --colors'
     ];
 
     public static function run(Event $event)
@@ -26,8 +26,6 @@ class CodeStyleFixer implements ComposerScriptInterface
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
         $command = self::getArrayValueByEventArguments('tool', self::$commands, $eventArguments);
-        $command = self::setColorParamIfSupported($command);
-        $command = self::setNoAnsiParamIfNeeded($command);
 
         $composerIO = $event->getIO();
         $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');

@@ -17,7 +17,7 @@ class CodeStyleChecker implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'local'   => 'phpcs src --standard=PSR2 {--colors}',
+        'local'   => 'phpcs src --standard=PSR2 --colors',
         'jenkins' => 'phpcs src --standard=PSR2 --report=checkstyle --report-file=checkstyle.xml'
     ];
 
