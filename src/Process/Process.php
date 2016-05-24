@@ -34,7 +34,7 @@ class Process extends SymfonyProcess
         if (self::hasParameterOption(self::NO_TTY_FLAG, $eventArguments)) {
             $this->setTty(false);
         } else {
-            // We have to try, because enabling TTY on Windows will throw an exception.
+            // We have to try, because enabling TTY on an environment without TTY support will throw an exception.
             try {
                 $this->setTty(true);
             } catch (RuntimeException $e) {
