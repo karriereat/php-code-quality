@@ -25,17 +25,17 @@ class ProcessSpec extends ObjectBehavior
 
     function its_tty_mode_can_be_set()
     {
-        $this->setTtyByArguments(array(Process::NO_TTY_FLAG => null), false);
+        $this->setTtyByArguments(array(Process::NO_TTY_FLAG => null))->shouldReturn(true);
         $this->shouldNotBeTty();
 
         // Since we have no TTY mode on Windows, we have to adapt our spec according to the current OS.
         if ('\\' === DIRECTORY_SEPARATOR) {
-            // Windows
-            $this->setTtyByArguments(array('foo' => 'bar'), false);
+            // Windows platform
+            $this->setTtyByArguments(array('foo' => 'bar'))->shouldReturn(false);
             $this->shouldNotBeTty();
         } else {
             // Unix
-            $this->setTtyByArguments(array('foo' => 'bar'), false);
+            $this->setTtyByArguments(array('foo' => 'bar'))->shouldReturn(true);
             $this->shouldBeTty();
         }
     }

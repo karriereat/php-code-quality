@@ -3,7 +3,6 @@
 namespace Karriere\CodeQuality\Process;
 
 use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Process\Process as SymfonyProcess;
 use Symfony\Component\Process\Exception\RuntimeException;
 
@@ -27,9 +26,9 @@ class Process extends SymfonyProcess
      * Check if the process was started with a 'notty' flag, if yes, deactivate it.
      *
      * @param $eventArguments
-     * @param $verbose
+     * @return bool
      */
-    public function setTtyByArguments($eventArguments, $verbose = true)
+    public function setTtyByArguments($eventArguments)
     {
         if (self::hasParameterOption(self::NO_TTY_FLAG, $eventArguments)) {
             $this->setTty(false);
@@ -38,11 +37,10 @@ class Process extends SymfonyProcess
             try {
                 $this->setTty(true);
             } catch (RuntimeException $e) {
-                if ($verbose) {
-                    $console = new ConsoleOutput();
-                    $console->writeln('Could not enable TTY: ' . $e->getMessage());
-                }
+                return false;
             }
         }
+
+        return true;
     }
 }
