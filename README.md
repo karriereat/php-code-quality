@@ -24,7 +24,7 @@ Sniffs all files in `src` directory.
 
 This package is can also be used for fixing, but it fixes way more than
 specified in PSR2 and is buggy.   
-Version v3.0.0 (not released yet) should improve reliability.
+Version 3.0.0 (not released yet) should improve reliability.
 
 ## Installation
 
@@ -80,9 +80,9 @@ composer fix
 composer coverage
 ```
 
-If you are using Git-Shell on Windows (or Git-Shell in Intellij 
-Terminal on Windows), call scripts like this: `composer.bat {script}`.
-Otherwise colors will not work.
+> If you are using Git-Shell on Windows (or Git-Shell in Intellij 
+> Terminal on Windows), call scripts like this: `composer.bat {script}`.
+> Otherwise colors will not work.
 
 These scripts accept arguments:
 
