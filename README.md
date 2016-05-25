@@ -80,6 +80,10 @@ composer fix
 composer coverage
 ```
 
+If you are using Git-Shell on Windows (or Git-Shell in Intellij 
+Terminal on Windows), call scripts like this: `composer.bat {script}`.
+Otherwise colors will not work.
+
 These scripts accept arguments:
 
 ```shell
