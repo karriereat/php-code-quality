@@ -58,7 +58,7 @@ trait ScriptArgumentsTrait
     }
 
     /**
-     * Check if a paramater was supplied with command.
+     * Check if a parameter was supplied with command.
      *
      * @param string $parameter
      * @param array  $eventArguments
