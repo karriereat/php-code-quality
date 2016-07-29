@@ -87,6 +87,10 @@ composer coverage
 These scripts accept arguments:
 
 ```
+composer test -- -v
+composer test -- --verbose
+```
+```
 composer lint -- --env=local (default)
 composer lint -- --env=jenkins
 ```

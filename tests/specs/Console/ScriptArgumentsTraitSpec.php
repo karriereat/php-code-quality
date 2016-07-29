@@ -42,44 +42,79 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
     function it_returns_a_default_command()
     {
         self::getArrayValueByEventArguments(
-            'env',
             [
                 'foo' => 'command foo',
                 'bar' => 'command bar'
             ],
             ['env' => 'novalidenv'],
+            'env',
             false
         )->shouldReturn('command foo');
 
         self::getArrayValueByEventArguments(
-            'env',
-            [
-                'foo' => 'bar'
-            ],
+            ['foo' => 'bar'],
             ['bar' => 'foo'],
+            'env',
             false
         )->shouldReturn('bar');
+
+        self::getArrayValueByEventArguments(
+            ['foo' => 'bar'],
+            [],
+            'env',
+            false
+        )->shouldReturn('bar');
+
+        self::getArrayValueByEventArguments(
+            [
+                'default' => 'command default',
+                'verbose' => 'command verbose'
+            ],
+            [],
+            '',
+            false
+        )->shouldReturn('command default');
     }
 
     function it_returns_a_command()
     {
         self::getArrayValueByEventArguments(
-            'env',
             [
                 'foo' => 'command foo',
                 'bar' => 'command bar'
             ],
-            ['env' => 'foo']
+            ['env' => 'foo'],
+            'env'
         )->shouldReturn('command foo');
 
         self::getArrayValueByEventArguments(
-            'env',
             [
                 'foo' => 'command foo',
                 'bar' => 'command bar'
             ],
-            ['env' => 'bar']
+            ['env' => 'bar'],
+            'env'
         )->shouldReturn('command bar');
+
+        self::getArrayValueByEventArguments(
+            [
+                'foo' => 'command foo',
+                'bar' => 'command bar'
+            ],
+            [
+                'env' => 'bar',
+                'foo' => 'bar'
+            ],
+            'env'
+        )->shouldReturn('command bar');
+
+        self::getArrayValueByEventArguments(
+            [
+                'default' => 'command default',
+                'verbose' => 'command verbose'
+            ],
+            ['verbose' => null]
+        )->shouldReturn('command verbose');
     }
 
     function it_returns_if_argument_exists()

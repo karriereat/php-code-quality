@@ -10,16 +10,27 @@ class SpecificationTest implements ComposerScriptInterface
 {
     use ScriptArgumentsTrait;
 
-    private static $command = 'phpspec run';
+    /**
+     * The code phpspec command.
+     *
+     * @var string
+     */
+    private static $commands = [
+        'default' => 'phpspec run',
+        'verbose' => 'phpspec run -v',
+        'v'       => 'phpspec run -v'
+    ];
 
     public static function run(Event $event)
     {
-        $composerIO = $event->getIO();
-        $composerIO->write('<info>Running </info><fg=green;options=bold>' . self::$command . '</>');
-
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
-        $process = new Process(self::$command);
+        $command = self::getArrayValueByEventArguments(self::$commands, $eventArguments);
+
+        $composerIO = $event->getIO();
+        $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');
+
+        $process = new Process($command);
         $process->setTtyByArguments($eventArguments);
         $process->run();
 

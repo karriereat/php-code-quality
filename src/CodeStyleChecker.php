@@ -25,7 +25,7 @@ class CodeStyleChecker implements ComposerScriptInterface
     {
         $eventArguments = self::getComposerScriptArguments($event->getArguments());
 
-        $command = self::getArrayValueByEventArguments('env', self::$commands, $eventArguments);
+        $command = self::getArrayValueByEventArguments(self::$commands, $eventArguments, 'env');
 
         $composerIO = $event->getIO();
         $composerIO->write('<info>Running </info><fg=green;options=bold>' . $command . '</>');
