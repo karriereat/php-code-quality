@@ -13,7 +13,8 @@
         "phpspec/phpspec": "^2.5",
         "squizlabs/php_codesniffer": "^2.6",
         "symfony/process": "^3.0",
-        "symfony/console": "^3.0"
+        "symfony/console": "^3.0",
+        "phpmd/phpmd": "^2.4"
     },
     "require-dev": {
         "composer/composer": "^1.1.0"
@@ -22,6 +23,7 @@
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
         "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
         "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run",
-        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run"
+        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run",
+        "md": "Karriere\\CodeQuality\\MessDetector::run"
     }
 }
