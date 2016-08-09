@@ -28,8 +28,8 @@ Version 3.0.0 (not released yet) should improve reliability.
 
 ### [phpmd/phpmd](https://github.com/phpmd/phpmd)
 
-Currently used for php mess detection  
-Runs the defined ruleset on all files in `src` directory
+Currently used for php mess detection.   
+Runs the defined ruleset on all files in `src` directory.
 
 ## Installation
 
