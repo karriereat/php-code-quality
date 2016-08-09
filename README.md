@@ -26,6 +26,11 @@ This package is can also be used for fixing, but it fixes way more than
 specified in PSR2 and is buggy.   
 Version 3.0.0 (not released yet) should improve reliability.
 
+### [phpmd/phpmd](https://github.com/phpmd/phpmd)
+
+Currently used for php mess detection  
+Runs the defined ruleset on all files in `src` directory
+
 ## Installation
 
 The recommended way to install this package is over composer.
@@ -66,7 +71,8 @@ Insert the desired scripts to your `composer.json`.
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
         "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
         "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run",
-        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run"
+        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run",
+        "md": "Karriere\\CodeQuality\\MessDetector::run"
     }
 }
 ```
@@ -78,6 +84,7 @@ composer test
 composer lint
 composer fix
 composer coverage
+composer md
 ```
 
 > If you are using Git-Shell on Windows (or Git-Shell in Intellij 
@@ -101,6 +108,10 @@ composer coverage -- --env=jenkins
 ```
 composer fix -- --tool=php-cs-fixer (default)
 composer fix -- --tool=phpcbf
+```
+```
+composer md -- --env=local (default)
+composer md -- --env=jenkins
 ```
 
 You can disable `TTY` by adding the `--notty` flag (needed for Jenkins).   
