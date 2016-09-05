@@ -9,6 +9,9 @@ Code Quality tests that can be run via Composer scripts.
 Used for testing (SpecBDD) the code.   
 Must be configured with a `phpspec.yml` file in your root folder.
 
+We are using the `henrikbjorn/phpspec-code-coverage` extension for generating coverage reports.   
+This extension requires a `phpspec-coverage.yml` file in your root folder.
+
 ### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 Currently used for fixing the code.   
@@ -120,3 +123,9 @@ On Windows platform it's disabled automatically.
 ```
 composer {script} -- --env=jenkins --notty
 ```
+## FAQ
+
+### Why do I have to provide two phpspec configuration files?
+
+The code-coverage-extension slows down the phpspec tests, so we excluded it from the
+normal configuration file. Keep tests fast!

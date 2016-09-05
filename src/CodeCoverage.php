@@ -11,8 +11,8 @@ class CodeCoverage implements ComposerScriptInterface
     use ScriptArgumentsTrait;
 
     private static $commands = [
-        'local'   => 'phpspec run -c phpspec-coverage.yml',
-        'jenkins' => 'phpspec run -c phpspec-coverage.yml --format=junit > junit.xml'
+        'local'   => 'phpspec run --config phpspec-coverage.yml',
+        'jenkins' => 'phpspec run --config phpspec-coverage.yml --format=junit > junit.xml'
     ];
 
     public static function run(Event $event)
