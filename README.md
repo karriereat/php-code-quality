@@ -1,6 +1,6 @@
 # Karriere Code Quality
 
-Code Quality tests that can be run via Composer scripts. 
+Code Quality tests that can be run via Composer scripts.
 
 ## Used packages
 
