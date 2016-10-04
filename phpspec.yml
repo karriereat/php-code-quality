@@ -1,6 +1,6 @@
 suites:
-    main:
-        namespace: Karriere\CodeQuality
-        psr4_prefix: Karriere\CodeQuality
-        src_path: src
-        spec_prefix: tests\specs
+  main:
+    namespace: Karriere\CodeQuality
+    psr4_prefix: Karriere\CodeQuality
+    src_path: src
+    spec_prefix: tests\specs
