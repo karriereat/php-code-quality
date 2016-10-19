@@ -6,11 +6,6 @@ use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class ScriptArgumentsTraitStub
-{
-    use ScriptArgumentsTrait;
-}
-
 class ScriptArgumentsTraitSpec extends ObjectBehavior
 {
     function let()
@@ -140,4 +135,9 @@ class ScriptArgumentsTraitSpec extends ObjectBehavior
         self::hasParameterOption('foo', array('foo' => 'bar', 'bar' => 'foo'))
             ->shouldReturn(true);
     }
+}
+
+class ScriptArgumentsTraitStub
+{
+    use ScriptArgumentsTrait;
 }
