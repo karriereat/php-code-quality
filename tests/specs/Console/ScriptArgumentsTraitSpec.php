@@ -2,14 +2,20 @@
 
 namespace tests\specs\Karriere\CodeQuality\Console;
 
+use Karriere\CodeQuality\Console\ScriptArgumentsTrait;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+
+class ScriptArgumentsTraitStub
+{
+    use ScriptArgumentsTrait;
+}
 
 class ScriptArgumentsTraitSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beAnInstanceOf('Karriere\CodeQuality\Console\Stubs\ScriptArgumentsTraitStub');
+        $this->beAnInstanceOf('tests\specs\Karriere\CodeQuality\Console\ScriptArgumentsTraitStub');
     }
 
     function it_returns_an_empty_array()
