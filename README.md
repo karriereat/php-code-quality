@@ -15,7 +15,7 @@ This extension requires a `phpspec-coverage.yml` file in your root folder.
 ### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 Currently used for fixing the code.   
-Fixes all files in `src` directory. Does not implement all PSR2 rules (yet).
+Fixes all files in `src` directory. Does not implement all PSR-2 rules (yet).
 
 This package is not used for checking (linting), because it can't create
 XML reports.
@@ -25,14 +25,13 @@ XML reports.
 Currently used for checking (linting) the code.   
 Sniffs all files in `src` directory.
 
-This package is can also be used for fixing, but it fixes way more than
-specified in PSR2 and is buggy.   
-Version 3.0.0 (not released yet) should improve reliability.
+This package can also be used for fixing, but it fixes way more than
+specified in PSR-2.
 
 ### [phpmd/phpmd](https://github.com/phpmd/phpmd)
 
-Currently used for php mess detection.   
-Runs the defined ruleset on all files in `src` directory.
+Used for mess detection.   
+Runs the defined ruleset (`config/phpmd.xml`) on all files in `src` directory.
 
 ## Installation
 
