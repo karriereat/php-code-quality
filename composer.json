@@ -8,7 +8,7 @@
     },
     "require": {
         "php": ">=5.6.4",
-        "friendsofphp/php-cs-fixer": "^1.12",
+        "friendsofphp/php-cs-fixer": "^2.0.0-RC",
         "henrikbjorn/phpspec-code-coverage": "^3.0",
         "phpmd/phpmd": "^2.4",
         "phpspec/phpspec": "^3.0",
@@ -21,9 +21,9 @@
     },
     "scripts": {
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
+        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run",
         "lint": "Karriere\\CodeQuality\\CodeStyleChecker::run",
         "fix": "Karriere\\CodeQuality\\CodeStyleFixer::run",
-        "coverage": "Karriere\\CodeQuality\\CodeCoverage::run",
         "md": "Karriere\\CodeQuality\\MessDetector::run"
     }
 }

@@ -17,7 +17,7 @@ class CodeStyleFixer implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'php-cs-fixer' => 'php-cs-fixer fix src --level=psr2 --diff',
+        'php-cs-fixer' => 'php-cs-fixer fix src --rules=@PSR2 --using-cache=false',
         'phpcbf'       => 'phpcbf src --standard=PSR2 --colors'
     ];
 
