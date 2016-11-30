@@ -34,9 +34,8 @@ class ProcessSpec extends ObjectBehavior
             $this->setTtyByArguments(array('foo' => 'bar'))->shouldReturn(false);
             $this->shouldNotBeTty();
         } else {
-            // Unix
-            $this->setTtyByArguments(array('foo' => 'bar'))->shouldReturn(true);
-            $this->shouldBeTty();
+            // We could test for Unix here, but Unix environments can have TTY or not.
+            // Testing for `true` or `false` doesn't make sense, so we skip this test.
         }
     }
 }
