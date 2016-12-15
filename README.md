@@ -15,18 +15,17 @@ This extension requires a `phpspec-coverage.yml` file in your root folder.
 ### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
 
 Currently used for fixing the code.   
-Fixes all files in `src` directory. Does not implement all PSR-2 rules (yet).
+Fixes all files in `src` directory.
 
-This package is not used for checking (linting), because it can't create
-XML reports.
+This package is not used for checking (linting), because PHP_Codesniffer produces are
+more readable output.
 
 ### [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
 Currently used for checking (linting) the code.   
 Sniffs all files in `src` directory.
 
-This package can also be used for fixing, but it fixes way more than
-specified in PSR-2.
+This package could also be used for fixing, but PHP-CS-Fixer does it better.
 
 ### [phpmd/phpmd](https://github.com/phpmd/phpmd)
 
@@ -100,16 +99,15 @@ composer test -- -v
 composer test -- --verbose
 ```
 ```
-composer lint -- --env=local (default)
-composer lint -- --env=jenkins
-```
-```
 composer coverage -- --env=local (default)
 composer coverage -- --env=jenkins
 ```
 ```
-composer fix -- --tool=php-cs-fixer (default)
-composer fix -- --tool=phpcbf
+composer lint -- --env=local (default)
+composer lint -- --env=jenkins
+```
+```
+composer fix
 ```
 ```
 composer md -- --env=local (default)
