@@ -107,9 +107,6 @@ composer lint -- --env=local (default)
 composer lint -- --env=jenkins
 ```
 ```
-composer fix
-```
-```
 composer md -- --env=local (default)
 composer md -- --env=jenkins
 ```
