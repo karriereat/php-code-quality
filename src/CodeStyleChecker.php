@@ -40,6 +40,8 @@ class CodeStyleChecker implements ComposerScriptInterface
 
         if ($exitCode === ComposerScriptInterface::EXIT_CODE_OK) {
             $composerIO->write('<fg=black;bg=green>Finished without errors!</>');
+        } elseif (self::hasParameterOption(ComposerScriptInterface::FLAG_FAIL, $eventArguments)) {
+            throw new \Exception('Failed with exit code '.$exitCode.'.');
         }
 
         return $exitCode;

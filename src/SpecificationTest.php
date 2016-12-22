@@ -36,6 +36,14 @@ class SpecificationTest implements ComposerScriptInterface
 
         $composerIO->write($process->getOutput());
 
-        return $process->getExitCode();
+        $exitCode = $process->getExitCode();
+
+        $fail = self::hasParameterOption(ComposerScriptInterface::FLAG_FAIL, $eventArguments);
+
+        if ($exitCode !== ComposerScriptInterface::EXIT_CODE_OK && $fail) {
+            throw new \Exception('Failed with exit code '.$exitCode.'.');
+        }
+
+        return $exitCode;
     }
 }

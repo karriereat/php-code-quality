@@ -21,6 +21,11 @@ interface ComposerScriptInterface
     const EXIT_CODE_ERROR = 1;
 
     /**
+     * Script argument to let commands fail.
+     */
+    const FLAG_FAIL = 'fail';
+
+    /**
      * Run a script.
      *
      * @param  \Composer\Script\Event $event
