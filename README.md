@@ -96,7 +96,7 @@ These scripts accept arguments:
 ```
 composer test -- -v
 composer test -- --verbose
-composer lint -- --fail
+composer test -- --fail
 ```
 ```
 composer lint -- --env=local (default)
