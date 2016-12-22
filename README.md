@@ -98,10 +98,12 @@ These scripts accept arguments:
 ```
 composer test -- -v
 composer test -- --verbose
+composer test -- --fail
 ```
 ```
 composer lint -- --env=local (default)
 composer lint -- --env=jenkins
+composer lint -- --fail
 ```
 ```
 composer coverage -- --env=local (default)
@@ -115,6 +117,8 @@ composer fix -- --tool=phpcbf
 composer md -- --env=local (default)
 composer md -- --env=jenkins
 ```
+
+By adding the `--fail` flag, the script will fail if the command fails.
 
 You can disable `TTY` by adding the `--notty` flag (needed for Jenkins).   
 On Windows platform it's disabled automatically.
