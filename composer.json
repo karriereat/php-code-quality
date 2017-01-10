@@ -1,6 +1,13 @@
 {
     "name": "karriere/code-quality",
     "description": "Code Quality tests that can be run via Composer scripts.",
+    "authors": [
+        {
+            "name": "Jakob Linskeseder",
+            "email": "jakob.linskeseder@karriere.at",
+            "role": "Maintainer"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Karriere\\CodeQuality\\": "src"
