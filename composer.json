@@ -15,7 +15,7 @@
     },
     "require": {
         "php": ">=5.6.4",
-        "friendsofphp/php-cs-fixer": "^2.0.0-RC",
+        "friendsofphp/php-cs-fixer": "^2.0.0",
         "henrikbjorn/phpspec-code-coverage": "^3.0",
         "phpmd/phpmd": "^2.4",
         "phpspec/phpspec": "^3.2",
