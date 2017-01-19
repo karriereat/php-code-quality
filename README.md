@@ -1,4 +1,4 @@
-<img width="200" src="https://www.karriere.at/images/layout/katlogo.svg">
+<a href="https://www.karriere.at/" target="_blank"><img width="200" src="https://www.karriere.at/images/layout/katlogo.svg"></a>
 <span>&nbsp;&nbsp;&nbsp;</span>
 [![Build Status](https://travis-ci.org/karriereat/php-code-quality.svg?branch=master)](https://travis-ci.org/karriereat/php-code-quality)
 [![Code Style](https://styleci.io/repos/79470259/shield)](https://styleci.io/repos/79470259)
