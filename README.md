@@ -1,4 +1,4 @@
-<img width="200" src="//www.karriere.at/images/layout/katlogo.svg">
+<img width="200" src="https://www.karriere.at/images/layout/katlogo.svg">
 
 ## Introduction
 
