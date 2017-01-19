@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/karriereat/php-code-quality.svg?branch=master)](https://travis-ci.org/karriereat/php-code-quality)
 [![Code Style](https://styleci.io/repos/79470259/shield)](https://styleci.io/repos/79470259/shield)
 
-## Introduction
+## Code Quality
 
 This package provides code quality scripts that can be run via
 [Composer](https://github.com/composer/composer).
