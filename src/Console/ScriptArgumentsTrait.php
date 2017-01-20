@@ -69,10 +69,6 @@ trait ScriptArgumentsTrait
      */
     public static function hasParameterOption($parameter, array $eventArguments)
     {
-        if (array_key_exists($parameter, $eventArguments)) {
-            return true;
-        }
-
-        return false;
+        return array_key_exists($parameter, $eventArguments);
     }
 }
