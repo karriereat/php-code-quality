@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "899916d6f186149aa882b14999cf6927",
-    "content-hash": "919000d10800d978c9d2ded131eaaabf",
+    "hash": "b760fd5fcf3ac2092a85d3e8786f5d84",
+    "content-hash": "4fd4c0b663aad520541e8e2e3d39a143",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -168,6 +168,54 @@
             ],
             "description": "Integrates CodeCoverage with PhpSpec",
             "time": "2016-08-02 06:07:43"
+        },
+        {
+            "name": "karriere/phpspec-matchers",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/karriereat/phpspec-matchers.git",
+                "reference": "71f9144090d8cded322c8b80d0cb55841daa4f4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/karriereat/phpspec-matchers/zipball/71f9144090d8cded322c8b80d0cb55841daa4f4f",
+                "reference": "71f9144090d8cded322c8b80d0cb55841daa4f4f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "phpspec/phpspec": "^3.2"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^3.0",
+                "squizlabs/php_codesniffer": "^2.8"
+            },
+            "type": "phpspec-extension",
+            "autoload": {
+                "psr-4": {
+                    "Karriere\\PhpSpecMatchers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Pichler",
+                    "email": "johannes.pichler@karriere.at"
+                }
+            ],
+            "description": "phpspec extension with a collection of additional matchers",
+            "homepage": "https://github.com/karriereat/phpspec-matchers",
+            "keywords": [
+                "TDD",
+                "json",
+                "matchers",
+                "phpspec"
+            ],
+            "time": "2017-02-07 10:35:05"
         },
         {
             "name": "pdepend/pdepend",

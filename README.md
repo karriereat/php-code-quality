@@ -138,6 +138,9 @@ Options:
       --notty  Disable TTY.
 ```
 
+## Using custom matchers
+This package integrates the [karriere/phpspec-matchers](https://github.com/karriereat/phpspec-matchers) package. To be able to use the custom matchers defined in the package please include the extension configuration in your `phpspec.yml`.
+
 ## FAQ
 
 ### Why do I have to provide two phpspec configuration files?
