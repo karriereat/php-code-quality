@@ -139,7 +139,10 @@ Options:
 ```
 
 ## Using custom matchers
-This package integrates the [karriere/phpspec-matchers](https://github.com/karriereat/phpspec-matchers) package. To be able to use the custom matchers defined in the package please include the extension configuration in your `phpspec.yml`.
+
+This package integrates [karriere/phpspec-matchers](https://github.com/karriereat/phpspec-matchers).
+In order to use the custom matchers defined in this package,
+please include the extension configuration in your `phpspec.yml`.
 
 ## FAQ
 
