@@ -2,6 +2,7 @@
 <span>&nbsp;&nbsp;&nbsp;</span>
 [![Build Status](https://travis-ci.org/karriereat/php-code-quality.svg?branch=master)](https://travis-ci.org/karriereat/php-code-quality)
 [![Code Style](https://styleci.io/repos/79470259/shield)](https://styleci.io/repos/79470259)
+[![Coverage Status](https://coveralls.io/repos/github/karriereat/php-code-quality/badge.svg?branch=master)](https://coveralls.io/github/karriereat/php-code-quality?branch=master)
 
 # Code Quality for PHP packages
 

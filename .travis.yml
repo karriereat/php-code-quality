@@ -10,4 +10,4 @@ before_install:
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
-script: composer test
+script: composer coverage
