@@ -17,7 +17,7 @@ The scripts also work on continous integration (CI) servers like Jenkins.
 Used for testing (SpecBDD) the code.   
 Must be configured with a `phpspec.yml` file in your root folder.
 
-We are using the `henrikbjorn/phpspec-code-coverage` extension for generating coverage reports.   
+We are using the `leanphp/phpspec-code-coverage` extension for generating coverage reports.   
 This extension requires a `phpspec-coverage.yml` file in your root folder and Xdebug enabled.
 
 ### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
