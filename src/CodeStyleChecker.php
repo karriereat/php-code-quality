@@ -12,7 +12,7 @@ class CodeStyleChecker implements ComposerScriptInterface
 
     /**
      * The code style checker command.
-     * An alternative is php-cs-fixer: 'php-cs-fixer fix src --level=psr2 --dry-run --diff'
+     * An alternative is php-cs-fixer: 'php-cs-fixer fix src --rules=@PSR2 --dry-run --diff --diff-format=udiff'
      *
      * @var string
      */

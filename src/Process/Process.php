@@ -34,6 +34,7 @@ class Process extends SymfonyProcess
             $this->setTty(false);
         } else {
             // We have to try, because enabling TTY on an environment without TTY support will throw an exception.
+            // This can be changed to `Process::isTtySupported()` if we only support symfony/process v4.1 and upwards.
             try {
                 $this->setTty(true);
             } catch (RuntimeException $e) {
