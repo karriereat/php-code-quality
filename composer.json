@@ -16,7 +16,7 @@
         }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "friendsofphp/php-cs-fixer": "^2.13",
         "karriere/phpspec-matchers": "^2.0",
         "leanphp/phpspec-code-coverage": "^4.2",
