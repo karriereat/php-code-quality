@@ -17,17 +17,17 @@
     },
     "require": {
         "php": ">=7.0",
-        "friendsofphp/php-cs-fixer": "^2.9",
+        "friendsofphp/php-cs-fixer": "^2.13",
         "karriere/phpspec-matchers": "^2.0",
-        "leanphp/phpspec-code-coverage": "^4.0",
+        "leanphp/phpspec-code-coverage": "^4.2",
         "phpmd/phpmd": "^2.6",
-        "phpspec/phpspec": "^4.0",
-        "squizlabs/php_codesniffer": "^3.2",
+        "phpspec/phpspec": "^4.3",
+        "squizlabs/php_codesniffer": "^3.3",
         "symfony/console": "^3.2 || ^4.0",
         "symfony/process": "^3.2 || ^4.0"
     },
     "require-dev": {
-        "composer/composer": "^1.5"
+        "composer/composer": "^1.6"
     },
     "scripts": {
         "test": "Karriere\\CodeQuality\\SpecificationTest::run",
