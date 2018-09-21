@@ -26,6 +26,7 @@ class MessDetector implements ComposerScriptInterface
 
         $process = new Process($command);
         $process->setTtyByArguments($eventArguments);
+        $process->setProcessTimeoutByArguments($eventArguments);
         $process->run();
 
         return $process->getExitCode();
