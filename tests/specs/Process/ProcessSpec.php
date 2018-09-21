@@ -38,4 +38,11 @@ class ProcessSpec extends ObjectBehavior
             // Testing for `true` or `false` doesn't make sense, so we skip this test.
         }
     }
+
+    function its_process_timeout_can_be_set()
+    {
+        $this->setProcessTimeoutByArguments(array(Process::PROCESS_TIMEOUT => 3600))->shouldReturn(true);
+
+        $this->getTimeout()->shouldReturn((double) 3600);
+    }
 }

@@ -17,6 +17,13 @@ class Process extends SymfonyProcess
      */
     const NO_TTY_FLAG = 'notty';
 
+    /**
+     * Flag to set the symfony process timeout as parameter.
+     *
+     * @var string
+     */
+    const PROCESS_TIMEOUT = 'ptimeout';
+
     public function __construct($commandline)
     {
         parent::__construct($commandline);
@@ -25,7 +32,7 @@ class Process extends SymfonyProcess
     /**
      * Check if the process was started with a 'notty' flag, if yes, deactivate it.
      *
-     * @param $eventArguments
+     * @param array $eventArguments
      * @return bool
      */
     public function setTtyByArguments($eventArguments)
@@ -40,6 +47,21 @@ class Process extends SymfonyProcess
             } catch (RuntimeException $e) {
                 return false;
             }
+        }
+
+        return true;
+    }
+
+    /**
+     * Check if the process was started with a 'ptimeout' flag, if not, use default 60s timeout
+     *
+     * @param array $eventArguments
+     * @return bool
+     */
+    public function setProcessTimeoutByArguments($eventArguments)
+    {
+        if (self::hasParameterOption(self::PROCESS_TIMEOUT, $eventArguments)) {
+            $this->setTimeout($eventArguments[self::PROCESS_TIMEOUT]);
         }
 
         return true;

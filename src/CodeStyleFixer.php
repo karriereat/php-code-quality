@@ -27,6 +27,7 @@ class CodeStyleFixer implements ComposerScriptInterface
 
         $process = new Process(self::$command);
         $process->setTtyByArguments($eventArguments);
+        $process->setProcessTimeoutByArguments($eventArguments);
         $process->run();
 
         $composerIO->write($process->getOutput());
