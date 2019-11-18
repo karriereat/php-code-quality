@@ -32,12 +32,10 @@ class CodeStyleFixer implements ComposerScriptInterface
 
         $composerIO->write($process->getOutput());
 
-        $exitCode = $process->getExitCode();
-
-        if ($exitCode !== ComposerScriptInterface::EXIT_CODE_OK) {
-            throw new ProcessFailedException($process);
-        }
-
-        return $exitCode;
+        // PHPCBF exit codes:
+        //  0 = Nothing was fixed by PHPCBF.
+        //  1 = PHPCBF fixed all fixable errors.
+        //  2 = PHPCBF fixed some fixable errors, but others failed to fix.
+        return $process->getExitCode();
     }
 }
