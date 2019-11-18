@@ -17,8 +17,8 @@ class CodeStyleChecker implements ComposerScriptInterface
      * @var string
      */
     private static $commands = [
-        'local'   => 'phpcs src --standard=PSR2 --colors',
-        'jenkins' => 'phpcs src --standard=PSR2 --report=checkstyle --report-file=checkstyle.xml'
+        'local'   => 'phpcs src --standard=PSR12 --colors',
+        'jenkins' => 'phpcs src --standard=PSR12 --report=checkstyle --report-file=checkstyle.xml'
     ];
 
     public static function run(Event $event)
@@ -42,7 +42,7 @@ class CodeStyleChecker implements ComposerScriptInterface
         if ($exitCode === ComposerScriptInterface::EXIT_CODE_OK) {
             $composerIO->write('<fg=black;bg=green>Finished without errors!</>');
         } elseif (self::hasParameterOption(ComposerScriptInterface::FLAG_FAIL, $eventArguments)) {
-            throw new \Exception('Failed with exit code '.$exitCode.'.');
+            throw new \Exception('Failed with exit code ' . $exitCode . '.');
         }
 
         return $exitCode;

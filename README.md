@@ -20,20 +20,10 @@ Must be configured with a `phpspec.yml` file in your root folder.
 We are using the `leanphp/phpspec-code-coverage` extension for generating coverage reports.   
 This extension requires a `phpspec-coverage.yml` file in your root folder and Xdebug enabled.
 
-### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-
-Currently used for fixing the code.   
-Fixes all files in `src` directory.
-
-This package is not used for checking (linting), because PHP_Codesniffer prints a 
-more readable output.
-
 ### [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
-Currently used for checking (linting) the code.   
+Currently used for checking (linting) and fixing the code.   
 Sniffs all files in `src` directory.
-
-This package could also be used for fixing, but PHP-CS-Fixer does it better.
 
 ### [phpmd/phpmd](https://github.com/phpmd/phpmd)
 

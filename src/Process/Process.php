@@ -15,14 +15,14 @@ class Process extends SymfonyProcess
      *
      * @var string
      */
-    const NO_TTY_FLAG = 'notty';
+    public const NO_TTY_FLAG = 'notty';
 
     /**
      * Flag to set the symfony process timeout as parameter.
      *
      * @var string
      */
-    const PROCESS_TIMEOUT = 'ptimeout';
+    public const PROCESS_TIMEOUT = 'ptimeout';
 
     public function __construct($commandline)
     {
