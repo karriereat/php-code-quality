@@ -84,6 +84,7 @@ Usage:
 Options:
       --fail     Exit with 1 if tests fail.
       --notty    Disable TTY.
+      --ptimeout Set process timeout (defaults to 60 seconds).
    -v --verbose  Increase the verbosity of messages.
 ```
 
@@ -94,11 +95,11 @@ Usage:
   coverage [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a JUnit report file.
-      --notty  Disable TTY.
-
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a JUnit report file.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `lint`
@@ -108,11 +109,12 @@ Usage:
   lint [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a checkstyle report file.
-      --fail   Exit with 1 if linting fails.
-      --notty  Disable TTY.
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a checkstyle report file.
+      --fail      Exit with 1 if linting fails.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `md`
@@ -122,10 +124,11 @@ Usage:
   lint [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a xml report file.
-      --notty  Disable TTY.
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a xml report file.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `fix`
@@ -135,7 +138,8 @@ Usage:
   fix [--] [options]
 
 Options:
-      --notty  Disable TTY.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 ## Using custom matchers
