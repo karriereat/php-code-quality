@@ -16,7 +16,7 @@ class CodeStyleFixer implements ComposerScriptInterface
      *
      * @var string
      */
-    private static $command = 'php-cs-fixer fix src --rules=@PSR2 --using-cache=false';
+    private static $command = 'phpcbf src --standard=PSR12';
 
     public static function run(Event $event)
     {

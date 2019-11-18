@@ -20,20 +20,10 @@ Must be configured with a `phpspec.yml` file in your root folder.
 We are using the `leanphp/phpspec-code-coverage` extension for generating coverage reports.   
 This extension requires a `phpspec-coverage.yml` file in your root folder and Xdebug enabled.
 
-### [FriendsOfPHP/PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-
-Currently used for fixing the code.   
-Fixes all files in `src` directory.
-
-This package is not used for checking (linting), because PHP_Codesniffer prints a 
-more readable output.
-
 ### [squizlabs/PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 
-Currently used for checking (linting) the code.   
+Currently used for checking (linting) and fixing the code.   
 Sniffs all files in `src` directory.
-
-This package could also be used for fixing, but PHP-CS-Fixer does it better.
 
 ### [phpmd/phpmd](https://github.com/phpmd/phpmd)
 
@@ -84,6 +74,7 @@ Usage:
 Options:
       --fail     Exit with 1 if tests fail.
       --notty    Disable TTY.
+      --ptimeout Set process timeout (defaults to 60 seconds).
    -v --verbose  Increase the verbosity of messages.
 ```
 
@@ -94,11 +85,11 @@ Usage:
   coverage [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a JUnit report file.
-      --notty  Disable TTY.
-
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a JUnit report file.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `lint`
@@ -108,11 +99,12 @@ Usage:
   lint [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a checkstyle report file.
-      --fail   Exit with 1 if linting fails.
-      --notty  Disable TTY.
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a checkstyle report file.
+      --fail      Exit with 1 if linting fails.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `md`
@@ -122,10 +114,11 @@ Usage:
   lint [--] [options]
 
 Options:
-      --env    Specifiy the environment. Possible values:
-               'local': prints output on command-line.
-               'jenkins': generates a xml report file.
-      --notty  Disable TTY.
+      --env       Specifiy the environment. Possible values:
+                  'local': prints output on command-line.
+                  'jenkins': generates a xml report file.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 #### `fix`
@@ -135,7 +128,8 @@ Usage:
   fix [--] [options]
 
 Options:
-      --notty  Disable TTY.
+      --notty     Disable TTY.
+      --ptimeout  Set process timeout (defaults to 60 seconds).
 ```
 
 ## Using custom matchers
