@@ -6,7 +6,7 @@ suites:
     spec_prefix: tests\specs
 
 extensions:
-  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+  FriendsOfPhpSpec\PhpSpec\CodeCoverage\CodeCoverageExtension:
     format:
       - html
       - clover
