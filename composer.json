@@ -17,6 +17,7 @@
     },
     "require": {
         "php": ">=7.1",
+        "dg/bypass-finals": "^1.1",
         "friends-of-phpspec/phpspec-code-coverage": "^4.3",
         "karriere/phpspec-matchers": "^3.0",
         "phpmd/phpmd": "^2.6",
