@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/karriereat/php-code-quality.svg?branch=master)](https://travis-ci.org/karriereat/php-code-quality)
 [![Code Style](https://styleci.io/repos/79470259/shield)](https://styleci.io/repos/79470259)
 
+# ❗️ This package is no longer being actively developed. ❗
+
 # Code Quality for PHP packages
 
 This package provides code quality scripts that can be run via
