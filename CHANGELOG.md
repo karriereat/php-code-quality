@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- Deprecation notice in readme
+
 ## [v5.1.0] - 2020-02-21
 ### Added
 - Package to ignore final classes in tests
